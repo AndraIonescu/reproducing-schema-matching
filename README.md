@@ -1,20 +1,23 @@
 # Reproducing schema matching algorithms
 
-The repository contains the algorithms presented in [1] and [2] 
-and reproduced in a master thesis according to the specifications indicated 
-in the papers.
+The repository contains our own implementation of the algorithms presented in [1] and [2] 
+and reproduced in a [master thesis](https://repository.tudelft.nl/islandora/object/uuid:9f8056e6-cfdf-4240-99e3-5f45947d1fa7?collection=education) according to the specifications indicated 
+in the papers. Paper [3] is already open-sourced and a fork of the original repository is available 
+[here](https://github.com/AndraIonescu/aurum-datadiscovery).
 
 [1] [Zhang, Meihui, et al. "Automatic discovery of attributes in relational databases." Proceedings of the 2011 ACM SIGMOD International Conference on Management of data. 2011.](https://dl.acm.org/doi/pdf/10.1145/1989323.1989336?casa_token=rBsHeImB_M8AAAAA:XW3PK9oDVGKSXtuIgbLkE-R2VyE1_Ym2SOoRvx3puR2BE2kSASiPHGGs3hDWrFizLK5B6DZjkLnA)
 
 [2] [Madhavan, Jayant, Philip A. Bernstein, and Erhard Rahm. "Generic schema matching with cupid." vldb. Vol. 1. 2001.
 ](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-2001-58.pdf)
 
+[3] [Fernandez, Raul Castro, et al. "Seeping semantics: Linking datasets using word embeddings for data discovery." 2018 IEEE 34th International Conference on Data Engineering (ICDE). IEEE, 2018.](http://da.qcri.org/ntang/pubs/icde2018semantic.pdf)
+
 The repository contains the [algorithms](algorithms), [experiments](experiments) and the [data](data) used in the experiments.
 
 ## Install
 > The project has been developed on MacOS Catalina and Ubuntu 19.10
 #### Prerequisites 
-* The algorithms require Python3.6 or Python3.7 and pip
+* The algorithms require Python 3.6+ and pip
 * Some packages require C++. Make sure you have it in your OS before installing the requirements.
 > For Windows 10+, you should install Virtual Studio and add the C++ package from there.
 
@@ -47,9 +50,9 @@ pip install -r requirements.txt
 In the [experiments](experiments) folder, the [clustering_experiments](experiments/clustering_experiments.py) file
 contains the method to run the algorithm. It needs command line arguments such as: 
 * the data folder - make a folder and add the data. You can add two or more **csv files** and the algorithm will cluster all the matching columns together
-* one thresholds - the threshold is used to discover the cutoff value (see the paper [1] for more details). Typical values:
+* one threshold - the threshold is used to discover the cutoff value (see the paper [1] for more details). Typical values:
 0.1, 0.2, 0.3
-* number of quantiles - the more quantilse, the more precise the algorithm is. Typical values: 50, 100, 150, 256
+* number of quantiles - the more quantiles, the more precise the algorithm is. Typical values: 50, 100, 150, 256
 * a clear cache boolean - the algorithm caches the data. Typical value _True_ 
 
 ```
@@ -82,7 +85,7 @@ target_tree = cupid_model.get_schema_by_index(1)
 ```
 * Indicate the output directory (for the results), the gold standard file (for computing the statistics - precision, recall, F1-score)
 and two intervals for thresholds (for more details about the thresholds see [2]):
-    * leaf range - typical lower than 1.0
+    * leaf range - typically lower than 1.0
     * accept threshold - typical value = 0.5, but you can experiment with lower values
 ```python
 out_dir = CURRENT_DIR + '/cupid-output/'
