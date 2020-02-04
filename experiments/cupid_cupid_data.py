@@ -19,6 +19,7 @@ def make_model(file_path1, file_path2):
 
     for table in table_list1:
         column_data1 = zip(df1[df1['table'] == table]['column'], itertools.repeat('string'))
+        # schema_name, table_name, pairs of (column_name, data_type)
         cupid_model.add_data(file_path1, table, column_data1)
 
     df2 = pd.read_csv(file_path2)
