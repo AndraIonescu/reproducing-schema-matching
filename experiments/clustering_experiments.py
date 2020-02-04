@@ -134,13 +134,12 @@ def get_results(path: str, threshold1: float, threshold2: float, quantiles: int,
 if __name__ == "__main__":
     """
     argv[1] -> the dataset root path
-    argv[2] -> the global threshold phase 1
-    argv[3] -> the global threshold phase 2
+    argv[2] -> the global threshold
     argv[4] -> the number of quantiles 
     argv[5] -> clear cache or not
 
     e.g. python3 run_tpch_benchmark.py ../data/clustering/ 0.1 0.1 50 True
     """
-    # get_results(sys.argv[1], threshold1=float(sys.argv[2]), threshold2=float(sys.argv[3]),
-    #             quantiles=int(sys.argv[4]), clear_cache=bool(sys.argv[5]))
-    get_results("./data/clustering/paper/", threshold1=0.1, threshold2=0.1, quantiles=50, clear_cache=True)
+    get_results(sys.argv[1], threshold1=float(sys.argv[2]), threshold2=float(sys.argv[2]),
+                quantiles=int(sys.argv[4]), clear_cache=bool(sys.argv[5]))
+    # get_results("./data/clustering/paper/", threshold1=0.1, threshold2=0.1, quantiles=50, clear_cache=True)

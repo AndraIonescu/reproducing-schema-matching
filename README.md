@@ -1,6 +1,7 @@
 # Reproducing schema matching algorithms
 
-The repository contains the algorithms presented in [1] and [2] and reproduced according to the specifications indicated 
+The repository contains the algorithms presented in [1] and [2] 
+and reproduced in a master thesis according to the specifications indicated 
 in the papers.
 
 [1] [Zhang, Meihui, et al. "Automatic discovery of attributes in relational databases." Proceedings of the 2011 ACM SIGMOD International Conference on Management of data. 2011.](https://dl.acm.org/doi/pdf/10.1145/1989323.1989336?casa_token=rBsHeImB_M8AAAAA:XW3PK9oDVGKSXtuIgbLkE-R2VyE1_Ym2SOoRvx3puR2BE2kSASiPHGGs3hDWrFizLK5B6DZjkLnA)
@@ -42,10 +43,25 @@ pip install -r requirements.txt
 ```
 
 ## Run
+### Clustering [1]
+In the [experiments](experiments) folder, the [clustering_experiments](experiments/clustering_experiments.py) file
+contains the method to run the algorithm. It needs command line arguments such as: 
+* the data folder - make a folder and add the data. You can add two or more **csv files** and the algorithm will cluster all the matching columns together
+* one thresholds - the threshold is used to discover the cutoff value (see the paper [1] for more details). Typical values:
+0.1, 0.2, 0.3
+* number of quantiles - the more quantilse, the more precise the algorithm is. Typical values: 50, 100, 150, 256
+* a clear cache boolean - the algorithm caches the data. Typical value _True_ 
+
+```
+python clustering_experiments.py ./data/clustering/paper 0.1 50 True
+```
+
+In the [data](data/clustering) folder, you can find the data used in the examples in the paper [1].
+
 ### Cupid [2]
 In the [experiments](experiments) folder, the [cupid_experiments](experiments/cupid_experiments.py) file
 contains the method to run the experiments in order to find the proper thresholds and create plots
-to visualise the precision, recall and f1-score. 
+to visualise the precision, recall and F1-score. 
 
 An example on how to run the experiments is in [cupid_cupid_data](experiments/cupid_cupid_data.py) which uses the 
 [data example](data/cupid/paper) indicated in the paper [1]. 
@@ -56,7 +72,8 @@ cupid_model = Cupid()
 ```
 * Add the data: schema_name, table_name, pairs of column_name, data_tye. **Note**: schema name should be different for two datasets
 ```python
-cupid_model.add_data(schema_name, table_name, (column_name, data_type))
+cupid_model.add_data(schema_name1, table_name1, (column_name1, data_type1))
+cupid_model.add_data(schema_name2, table_name2, (column_name2, data_type2))
 ```
 * Next, decide on a source tree and a target tree
 ```python
@@ -81,3 +98,5 @@ run_experiments(source_tree, target_tree, cupid_model, out_dir, leaf_range, th_a
 ```python
 compute_statistics(gold_standard_file, out_dir, leaf_range, th_accept_range)
 ```
+
+ 
