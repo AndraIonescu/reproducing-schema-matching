@@ -102,4 +102,6 @@ run_experiments(source_tree, target_tree, cupid_model, out_dir, leaf_range, th_a
 compute_statistics(gold_standard_file, out_dir, leaf_range, th_accept_range)
 ```
 
- 
+### Seeping semantics [3]
+The [seeping-semantics](algorithms/seeping-semantics) folder contains scripts to help setting up the project 
+and a [README.md](algorithms/seeping-semantics/README.md) with all the necessary steps.
