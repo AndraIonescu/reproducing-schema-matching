@@ -55,10 +55,10 @@ This script creates the model in .pkl format and other metadata files used in th
 ### Step 5
 Download the ontology: https://www.ebi.ac.uk/efo/ 
 
-Convert the ontology into pkl format by running create_pkl_ontology.sh <input_file.owl> <output_path.pkl>
+Convert the ontology into pkl format by running create_pkl_ontology.py from inside _aurum_. 
 
 ``
-./create_pkl_ontology.sh path_to_the_downloaded_onto /cache_onto/efo
+./create_pkl_ontology.sh path_to_the_downloaded_onto /cache_onto/efo.pkl
 ``
 
 > **Note**: The output file will be generated into aurum-datadiscovery folder. 
