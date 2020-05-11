@@ -1,0 +1,6 @@
+('orders__Quantity', 'sales__Quantity')
+('orders__Quantity', 'time__Quarter')
+('orders__Discount', 'sales__Discount')
+('orderDetails__Quantity', 'sales__Quantity')
+('orderDetails__Quantity', 'time__Quarter')
+('orderDetails__Discount', 'sales__Discount')

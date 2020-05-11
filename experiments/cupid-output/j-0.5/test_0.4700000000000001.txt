@@ -1,0 +1,4 @@
+('orders__Quantity', 'sales__Quantity')
+('orders__Discount', 'sales__Discount')
+('orderDetails__Quantity', 'sales__Quantity')
+('orderDetails__Discount', 'sales__Discount')
