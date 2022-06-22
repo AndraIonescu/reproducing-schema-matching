@@ -9,7 +9,7 @@ kiwisolver==1.1.0
 matplotlib==3.1.2
 networkx==2.4
 nltk==3.4.5
-numpy==1.18.1
+numpy==1.22.0
 pandas==0.25.3
 PuLP==2.0
 pyemd==0.5.1
