@@ -16,7 +16,7 @@ pyemd==0.5.1
 pyparsing==2.4.6
 python-dateutil==2.8.1
 pytz==2019.3
-scipy==1.4.1
+scipy==1.10.0
 similarity==0.0.1
 six==1.14.0
 snakecase==1.0.1
